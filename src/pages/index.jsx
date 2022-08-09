@@ -59,6 +59,7 @@ const Home = () => {
                     src="/assets/img/Thumbnail.jpg"
                     width={358}
                     height={184}
+                    alt="portfolioの画像です"
                   />
                   <h3 className="mt-2 text-[22px] font-bold">IT KINGDOM</h3>
                   <p className="mt-2">
