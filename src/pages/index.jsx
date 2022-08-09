@@ -5,29 +5,29 @@ import HomeContentTitle from "src/components/HomeContentTitle";
 
 const Home = () => {
   return (
-    <div class="m-auto max-w-[390px]">
+    <div className="m-auto max-w-[390px]">
       <Header />
       <main>
-        <div class="h-[248px] bg-[#E64980] text-white">
-          <div class="mx-auto w-[358px] pt-[53.5px]">
+        <div className="h-[248px] bg-[#E64980] text-white">
+          <div className="mx-auto w-[358px] pt-[53.5px]">
             <h2>Shimabu IT University</h2>
             <p>しまぶーのポートフォリオのためのページです</p>
-            <ul class="mt-[43.5px] flex">
-              <li class="mr-2">twitter</li>
-              <li class="mr-2">facebook</li>
+            <ul className="mt-[43.5px] flex">
+              <li className="mr-2">twitter</li>
+              <li className="mr-2">facebook</li>
               <li>radio</li>
             </ul>
           </div>
         </div>
         <div>
           <HomeContentTitle title="Blog" />
-          <div class="mx-auto w-[358px]">
+          <div className="mx-auto w-[358px]">
             <h3>This is a header</h3>
-            <p class="mt-2 text-ellipsis">
+            <p className="mt-2 text-ellipsis">
               Amet minim mollit non deserunt ullamco est sit aliqua dolor do
               amet sint. Velit officia consuequ
             </p>
-            <p class="mt-2">2022.07.11</p>
+            <p className="mt-2">2022.07.11</p>
           </div>
           <Button text="View All" />
         </div>

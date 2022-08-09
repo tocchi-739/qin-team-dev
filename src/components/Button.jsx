@@ -1,8 +1,8 @@
 const Button = (props) => {
   return (
-    <div class=" flex items-center justify-center">
+    <div className="flex items-center justify-center">
       <a
-        class="mt-6 inline-block rounded-full bg-gray-800 px-[22px] py-[10px] text-center text-white"
+        className="mt-6 inline-block rounded-full bg-gray-800 px-[22px] py-[10px] text-center text-white"
         href=""
       >
         {props.text}
