@@ -1,7 +1,9 @@
 const Footer = () => {
   return (
-    <footer className="border-t-2 border-gray-400">
-      <p>&copy; 2022 Shimabu IT University</p>
+    <footer className="h-[100px] border-t-2 border-[#E9ECEF]">
+      <p className="mt-6 text-center text-[#868E96]">
+        &copy; 2022 Shimabu IT University
+      </p>
     </footer>
   );
 };
