@@ -23,7 +23,7 @@ const Header = () => {
           return (
             <li className="mr-2" key={item.id}>
               <Link href={item.href}>
-                <a>{item.label}</a>
+                <a className="hover:opacity-60">{item.label}</a>
               </Link>
             </li>
           );

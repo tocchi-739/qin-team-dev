@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import Button from "src/components/Button";
 import Footer from "src/components/Footer";
@@ -32,7 +33,7 @@ const Home = () => {
           {blogList.map((blog) => {
             return (
               <Link href="#" key={blog.id}>
-                <a className="mt-6 block hover:bg-slate-300">
+                <a className="mt-6 block hover:opacity-60">
                   <h3 className="text-[22px] font-bold">This is a header</h3>
                   <p className="mt-2 text-ellipsis font-medium line-clamp-2">
                     Amet minim mollit non deserunt ullamco est sit aliqua dolor
@@ -53,8 +54,12 @@ const Home = () => {
           {portfolioList.map((portfolio) => {
             return (
               <Link href="#" key={portfolio.id}>
-                <a className="mt-10 block hover:bg-slate-300">
-                  <img src="assets/img/Thumbnail.jpg"></img>
+                <a className="mt-10 block hover:opacity-60">
+                  <Image
+                    src="/assets/img/Thumbnail.jpg"
+                    width={358}
+                    height={184}
+                  />
                   <h3 className="mt-2 text-[22px] font-bold">IT KINGDOM</h3>
                   <p className="mt-2">
                     当サロンのLPページ。React、Next.js、TypeScriptなどのモダンな技術を用いて作られています。初心者にちょうどいい難易度の制作物です。
