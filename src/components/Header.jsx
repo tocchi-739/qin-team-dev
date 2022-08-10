@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const NAV_ITEMS = [
@@ -13,8 +14,15 @@ const Header = () => {
     <header className="mt-[44px] h-[65px]">
       <div className="flex justify-between">
         <div>ハンバーガー</div>
-        <div>Shimabu IT University</div>
-        <div>月</div>
+        <div className="text-lg font-bold">Shimabu IT University</div>
+        <div>
+          <Image
+            src="/assets/svgs/Dark Mode.svg"
+            width={34}
+            height={34}
+            alt="ダークモードのマーク"
+          />
+        </div>
       </div>
       <br />
       {/* ハンバーガー内容 */}
