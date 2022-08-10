@@ -7,6 +7,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/server": "^11.10.0",
+    "@mantine/core": "^5.1.1",
+    "@mantine/hooks": "^5.1.1",
+    "@mantine/next": "^5.1.1",
     "@tailwindcss/line-clamp": "^0.4.0",
     "next": "latest",
     "react": "17.0.2",
