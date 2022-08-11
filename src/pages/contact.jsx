@@ -14,21 +14,21 @@ const Contact = () => {
       <main className="pt-[109px]">
         <HomeContentTitle title="Contact" />
         <form action="" className="mx-4 flex flex-col text-sm">
-          <label for="email">Email</label>
+          <label htmlFor="email">Email</label>
           <input
             id="email"
             type="email"
             placeholder="your@email.com"
             className="mt-1 mb-4 border-[1px] border-[#CED4DA] px-[12px] py-[7px]"
           />
-          <label for="name">Name</label>
+          <label htmlFor="name">Name</label>
           <input
             id="name"
             type="text"
             placeholder="Taro Yamada"
             className="mt-1 mb-4 border-[1px] border-[#CED4DA] px-[12px] py-[7px]"
           />
-          <label for="your-message">Your message</label>
+          <label htmlFor="your-message">Your message</label>
           <textarea
             id="your-message"
             name="your-message"
