@@ -15,7 +15,7 @@ const Header = () => {
   const title = opened ? "Close navigation" : "Open navigation";
 
   return (
-    <header className="fixed top-0 z-10 mb-5 mt-[44px] h-[65px] w-[390px] border-b-2 bg-white">
+    <header className="fixed top-0 z-10 mb-5 mt-[44px] h-[65px] w-[390px] bg-white">
       {opened ? (
         <div className="fixed bottom-0 top-0 z-50 h-screen w-[390px] bg-[#E64980]">
           <div className="mt-[63px] ml-1">
