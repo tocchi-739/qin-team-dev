@@ -11,10 +11,14 @@ const NAV_ITEMS = [
 
 const Header = () => {
   return (
-    <header className="mt-[44px] h-[65px]">
+    <header className="mt-[44px] mb-10 h-[65px]">
       <div className="flex justify-between">
         <div>ハンバーガー</div>
-        <div className="text-lg font-bold">Shimabu IT University</div>
+        <div className="text-lg font-bold">
+          <Link href="/">
+            <a>Shimabu IT University</a>
+          </Link>
+        </div>
         <div>
           <Image
             src="/assets/svgs/Dark_Mode.svg"

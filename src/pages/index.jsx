@@ -9,6 +9,34 @@ import HomeContentTitle from "src/components/HomeContentTitle";
 const blogList = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
 const portfolioList = [{ id: 1 }, { id: 2 }, { id: 3 }];
 const githubList = [{ id: 1 }, { id: 2 }, { id: 3 }];
+const svgImages = [
+  { id: 1, src: "/assets/svgs/Twitter.svg", alt: "Twitterのマーク" },
+  { id: 2, src: "/assets/svgs/Facebook.svg", alt: "Facebookのマーク" },
+  { id: 3, src: "/assets/svgs/RSS.svg", alt: "RSSのマーク" },
+];
+const githubProgressDetails = [
+  {
+    id: 1,
+    src: "/assets/svgs/Ellipse_blue.svg",
+    alt: "箇条書きの点",
+    text: "TypeScript",
+    percent: 65.5,
+  },
+  {
+    id: 2,
+    src: "/assets/svgs/Ellipse_yellow.svg",
+    alt: "箇条書きの点",
+    text: "JavaScript",
+    percent: 33.7,
+  },
+  {
+    id: 3,
+    src: "/assets/svgs/Ellipse_gray.svg",
+    alt: "箇条書きの点",
+    text: "Other",
+    percent: 0.8,
+  },
+];
 
 const Home = () => {
   return (
@@ -25,42 +53,22 @@ const Home = () => {
               しまぶーのポートフォリオのためのページです
             </p>
             <ul className="mt-[43.5px] flex">
-              <li className="mr-2">
-                <Link href="#">
-                  <a>
-                    <Image
-                      src="/assets/svgs/Twitter.svg"
-                      width={25}
-                      height={25}
-                      alt="Twitterのマーク"
-                    />
-                  </a>
-                </Link>
-              </li>
-              <li className="mr-2">
-                <Link href="#">
-                  <a>
-                    <Image
-                      src="/assets/svgs/Facebook.svg"
-                      width={25}
-                      height={25}
-                      alt="Facebookのマーク"
-                    />
-                  </a>
-                </Link>
-              </li>
-              <li className="mr-2">
-                <Link href="#">
-                  <a>
-                    <Image
-                      src="/assets/svgs/RSS.svg"
-                      width={25}
-                      height={25}
-                      alt="RSSのマーク"
-                    />
-                  </a>
-                </Link>
-              </li>
+              {svgImages.map((svgImage) => {
+                return (
+                  <li className="mr-2" key={svgImage.id}>
+                    <Link href="#">
+                      <a>
+                        <Image
+                          src={svgImage.src}
+                          width={25}
+                          height={25}
+                          alt={svgImage.alt}
+                        />
+                      </a>
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
@@ -83,7 +91,7 @@ const Home = () => {
               </Link>
             );
           })}
-          <Button text="View All" />
+          <Button text="View All" href="/blog" />
         </div>
         <div className="mx-3 mt-[61px]">
           <HomeContentTitle title="Protfolio" />
@@ -108,7 +116,7 @@ const Home = () => {
               </Link>
             );
           })}
-          <Button text="View All" />
+          <Button text="View All" href="/portfolio" />
         </div>
         <div className="mx-3 mt-[61px]">
           <HomeContentTitle title="GitHub" />
@@ -144,71 +152,39 @@ const Home = () => {
                 </div>
                 <div className="mt-2">
                   <ul className="flex flex-wrap">
-                    <li className="mr-4">
-                      <span>
-                        <span>
-                          <Image
-                            src="/assets/svgs/Ellipse_blue.svg"
-                            width={6}
-                            height={6}
-                            alt="箇条書きの点"
-                          />
-                        </span>
-                        <span className="ml-[6px] text-xs font-bold">
-                          TypeScript
-                        </span>
-                        <span className="ml-[6px] text-xs font-bold text-[#909296]">
-                          65.5%
-                        </span>
-                      </span>
-                    </li>
-                    <li>
-                      <span>
-                        <span>
-                          <Image
-                            src="/assets/svgs/Ellipse_yellow.svg"
-                            width={6}
-                            height={6}
-                            alt="箇条書きの点"
-                          />
-                        </span>
-                        <span className="ml-[6px] text-xs font-bold">
-                          JavaScript
-                        </span>
-                        <span className="ml-[6px] text-xs font-bold text-[#909296]">
-                          33.7%
-                        </span>
-                      </span>
-                    </li>
-                    <li>
-                      <span>
-                        <span>
-                          <Image
-                            src="/assets/svgs/Ellipse_gray.svg"
-                            width={6}
-                            height={6}
-                            alt="箇条書きの点"
-                          />
-                        </span>
-                        <span className="ml-[6px] text-xs font-bold">
-                          Other
-                        </span>
-                        <span className="ml-[6px] text-xs font-bold text-[#909296]">
-                          0.8%
-                        </span>
-                      </span>
-                    </li>
+                    {githubProgressDetails.map((githubProgressDetail) => {
+                      return (
+                        <li className="mr-2" key={githubProgressDetail.id}>
+                          <span>
+                            <span>
+                              <Image
+                                src={githubProgressDetail.src}
+                                width={6}
+                                height={6}
+                                alt={githubProgressDetail.alt}
+                              />
+                            </span>
+                            <span className="ml-[6px] text-xs font-bold">
+                              {githubProgressDetail.text}
+                            </span>
+                            <span className="ml-[6px] text-xs font-bold text-[#909296]">
+                              {githubProgressDetail.percent}%
+                            </span>
+                          </span>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               </div>
             );
           })}
-          <Button text="View on GitHub" />
+          <Button text="View on GitHub" href="#" />
         </div>
         <div className="mx-3 mt-[61px]">
           <HomeContentTitle title="Twitter" />
           <div>中身</div>
-          <Button text="View on Twitter" />
+          <Button text="View on Twitter" href="#" />
         </div>
       </main>
       <Footer />
