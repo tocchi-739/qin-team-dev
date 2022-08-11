@@ -17,7 +17,7 @@ const Header = () => {
         <div className="text-lg font-bold">Shimabu IT University</div>
         <div>
           <Image
-            src="/assets/svgs/Dark Mode.svg"
+            src="/assets/svgs/Dark_Mode.svg"
             width={34}
             height={34}
             alt="ダークモードのマーク"
