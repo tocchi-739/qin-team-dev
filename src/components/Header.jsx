@@ -19,14 +19,14 @@ const Header = () => {
             <a>Shimabu IT University</a>
           </Link>
         </div>
-        <div>
+        <button>
           <Image
             src="/assets/svgs/Dark_Mode.svg"
             width={34}
             height={34}
             alt="ダークモードのマーク"
           />
-        </div>
+        </button>
       </div>
       <br />
       {/* ハンバーガー内容 */}

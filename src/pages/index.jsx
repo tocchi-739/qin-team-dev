@@ -9,6 +9,7 @@ import HomeContentTitle from "src/components/HomeContentTitle";
 const blogList = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
 const portfolioList = [{ id: 1 }, { id: 2 }, { id: 3 }];
 const githubList = [{ id: 1 }, { id: 2 }, { id: 3 }];
+const tweetList = [{ id: 1 }, { id: 2 }, { id: 3 }];
 const svgImages = [
   { id: 1, src: "/assets/svgs/Twitter.svg", alt: "Twitterのマーク" },
   { id: 2, src: "/assets/svgs/Facebook.svg", alt: "Facebookのマーク" },
@@ -72,7 +73,7 @@ const Home = () => {
             </ul>
           </div>
         </div>
-        <div className="mx-3 mt-10">
+        <div className="mx-4 mt-10">
           <HomeContentTitle title="Blog" />
           {blogList.map((blog) => {
             return (
@@ -93,18 +94,20 @@ const Home = () => {
           })}
           <Button text="View All" href="/blog" />
         </div>
-        <div className="mx-3 mt-[61px]">
+        <div className="mx-4 mt-[61px]">
           <HomeContentTitle title="Protfolio" />
           {portfolioList.map((portfolio) => {
             return (
               <Link href="#" key={portfolio.id}>
                 <a className="mt-10 block hover:opacity-60">
-                  <Image
-                    src="/assets/img/Thumbnail.jpg"
-                    width={358}
-                    height={184}
-                    alt="portfolioの画像です"
-                  />
+                  <div className="relative h-[184px] w-full">
+                    <Image
+                      src="/assets/img/Thumbnail.jpg"
+                      layout="fill"
+                      objectFit="contain"
+                      alt="portfolioの画像です"
+                    />
+                  </div>
                   <h3 className="mt-2 text-[22px] font-bold">IT KINGDOM</h3>
                   <p className="mt-2">
                     当サロンのLPページ。React、Next.js、TypeScriptなどのモダンな技術を用いて作られています。初心者にちょうどいい難易度の制作物です。
@@ -118,7 +121,7 @@ const Home = () => {
           })}
           <Button text="View All" href="/portfolio" />
         </div>
-        <div className="mx-3 mt-[61px]">
+        <div className="mx-4 mt-[61px]">
           <HomeContentTitle title="GitHub" />
           {githubList.map((github) => {
             return (
@@ -181,9 +184,48 @@ const Home = () => {
           })}
           <Button text="View on GitHub" href="#" />
         </div>
-        <div className="mx-3 mt-[61px]">
+        <div className="mx-4 mt-[61px]">
           <HomeContentTitle title="Twitter" />
-          <div>中身</div>
+          {tweetList.map((tweet) => {
+            return (
+              <div className="mt-10 mb-[56px] flex" key={tweet.id}>
+                <div className="mr-4">
+                  <Image
+                    src="/assets/img/TwitterAccountImage.jpg"
+                    width={38}
+                    height={38}
+                    alt="twitterアカウント画像"
+                  />
+                </div>
+                <div className="w-[304px]">
+                  <div className="flex items-center">
+                    <h2 className="font-bold">しまぶーのIT大学</h2>
+                    <p className="ml-2 text-xs font-bold text-[#909296]">
+                      @shimabu_it・5月25日
+                    </p>
+                  </div>
+                  <p className="mt-1 text-sm">
+                    📣 新サービス「Noway Form」をリリースしました！
+                    <br />
+                    <br />
+                    NowayFormは、Notionのデータベースをもとにフォームを作成できるサービスです。これまでGoogle
+                    FormsでやっていたことがNotionだけで完結します✌✨
+                    <br />
+                    <br />
+                    試しに使っていただけると幸いです😊
+                    <br />
+                    <br />
+                    <a
+                      href="https://www.noway-form.com/ja"
+                      className="text-[#228BE6]"
+                    >
+                      https://www.noway-form.com/ja
+                    </a>
+                  </p>
+                </div>
+              </div>
+            );
+          })}
           <Button text="View on Twitter" href="#" />
         </div>
       </main>
