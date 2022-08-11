@@ -46,7 +46,7 @@ const Home = () => {
         <title>Home</title>
       </Head>
       <Header />
-      <main>
+      <main className="pt-[109px]">
         <div className="h-[248px] bg-[#E64980] text-white">
           <div className="mx-auto w-[358px] pt-[53.5px]">
             <h2 className="text-[28px] font-bold">Shimabu IT University</h2>
