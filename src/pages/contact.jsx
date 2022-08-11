@@ -9,7 +9,7 @@ const Contact = () => {
         <title>Contact</title>
       </Head>
       <Header />
-      <main>contactページです</main>
+      <main className="pt-[109px]">contactページです</main>
       <Footer />
     </div>
   );

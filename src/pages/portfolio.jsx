@@ -9,7 +9,7 @@ const Portfolio = () => {
         <title>Portfolio</title>
       </Head>
       <Header />
-      <main>portfolioページです</main>
+      <main className="pt-[109px]">portfolioページです</main>
       <Footer />
     </div>
   );

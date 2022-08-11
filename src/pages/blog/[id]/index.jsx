@@ -9,7 +9,7 @@ const BlogDetail = () => {
         <title>BlogDetail</title>
       </Head>
       <Header />
-      <main>blog詳細ページです</main>
+      <main className="pt-[109px]">blog詳細ページです</main>
       <Footer />
     </div>
   );

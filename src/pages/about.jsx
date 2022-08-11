@@ -9,7 +9,7 @@ const About = () => {
         <title>About</title>
       </Head>
       <Header />
-      <main>aboutページです</main>
+      <main className="pt-[109px]">aboutページです</main>
       <Footer />
     </div>
   );
