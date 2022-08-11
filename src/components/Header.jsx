@@ -6,7 +6,7 @@ import { Burger } from "@mantine/core";
 const NAV_ITEMS = [
   { id: 1, href: "/about", label: "About" },
   { id: 2, href: "/blog", label: "Blog" },
-  { id: 3, href: "/portfolio", label: "portfolio" },
+  { id: 3, href: "/portfolio", label: "Portfolio" },
   { id: 4, href: "/contact", label: "Contact" },
 ];
 
