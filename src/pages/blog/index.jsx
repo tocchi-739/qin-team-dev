@@ -20,12 +20,12 @@ const blogList = [
 
 const Blog = () => {
   return (
-    <div className="m-auto max-w-[1000px]">
+    <div id="wrapper">
       <Head>
         <title>Blog</title>
       </Head>
       <Header />
-      <main className="mx-4 pt-[109px]">
+      <main>
         <HomeContentTitle title="Blog" />
         {blogList.map((blog) => {
           return (

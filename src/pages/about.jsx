@@ -5,12 +5,12 @@ import HomeContentTitle from "src/components/HomeContentTitle";
 
 const About = () => {
   return (
-    <div className="m-auto max-w-[1000px]">
+    <div id="wrapper">
       <Head>
         <title>About</title>
       </Head>
       <Header />
-      <main className="mx-4 pt-[109px]">
+      <main>
         <HomeContentTitle title="About" />
         <h3 className="text-[22px] font-bold">Lightsound Shimabu</h3>
         <p className="mt-6 leading-8">

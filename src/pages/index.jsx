@@ -48,12 +48,12 @@ const githubProgressDetails = [
 
 const Home = () => {
   return (
-    <div className="m-auto max-w-[1000px]">
+    <div id="wrapper">
       <Head>
         <title>Home</title>
       </Head>
       <Header />
-      <main className="pt-[109px]">
+      <main>
         <div className="h-[248px] bg-[#E64980] text-white">
           <div className="mx-auto w-[358px] pt-[53.5px]">
             <h2 className="text-[28px] font-bold">Shimabu IT University</h2>

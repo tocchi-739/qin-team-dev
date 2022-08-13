@@ -6,12 +6,12 @@ import HomeContentTitle from "src/components/HomeContentTitle";
 
 const Contact = () => {
   return (
-    <div className="m-auto max-w-[1000px]">
+    <div id="wrapper">
       <Head>
         <title>Contact</title>
       </Head>
       <Header />
-      <main className="mx-4 pt-[109px]">
+      <main>
         <HomeContentTitle title="Contact" />
         <form action="" className="flex flex-col text-sm">
           <label htmlFor="email">Email</label>

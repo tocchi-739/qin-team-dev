@@ -16,18 +16,18 @@ const portfolioList = [
 
 const Portfolio = () => {
   return (
-    <div className="m-auto max-w-[1000px]">
+    <div id="wrapper">
       <Head>
         <title>Portfolio</title>
       </Head>
       <Header />
-      <main className="mx-4 pt-[109px]">
+      <main>
         <HomeContentTitle title="Portfolio" />
         <div className="grid grid-cols-1 md:grid-cols-3 md:gap-6 ">
           {portfolioList.map((portfolio) => {
             return (
               <Link href="#" key={portfolio.id}>
-                <a className="mx-4 mt-10 block hover:opacity-60 md:mt-0">
+                <a className="mt-10 block hover:opacity-60 md:mt-0">
                   <div className="relative h-[184px] w-full">
                     <Image
                       src="/assets/img/Thumbnail.jpg"
