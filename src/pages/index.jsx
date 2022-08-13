@@ -68,7 +68,7 @@ const Home = () => {
               <ul className="mt-[43.5px] flex">
                 {svgImages.map((svgImage) => {
                   return (
-                    <li className="mr-2" key={svgImage.id}>
+                    <li className="mr-2 hover:opacity-60" key={svgImage.id}>
                       <Link href="#">
                         <a>
                           <Image
