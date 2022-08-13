@@ -15,9 +15,9 @@ const Header = () => {
   const title = opened ? "Close navigation" : "Open navigation";
 
   return (
-    <header className="fixed top-0 z-10 mb-5 mt-[44px] h-[65px] w-[390px] bg-white">
+    <header className="z-10 mb-5 mt-[44px]  h-[65px] bg-white">
       {opened ? (
-        <div className="fixed bottom-0 top-0 z-50 h-screen w-[390px] bg-[#E64980]">
+        <div className="fixed bottom-0 top-0 left-0 z-50 h-screen w-screen bg-[#E64980]">
           <div className="mt-[63px] ml-1">
             <Burger
               opened={opened}
@@ -35,7 +35,7 @@ const Header = () => {
                   key={item.id}
                 >
                   <Link href={item.href}>
-                    <a className="hover:opacity-60">{item.label}</a>
+                    <a className="block hover:opacity-60">{item.label}</a>
                   </Link>
                 </li>
               );
@@ -43,7 +43,7 @@ const Header = () => {
           </ul>
         </div>
       ) : (
-        <div className="flex h-full items-center justify-between">
+        <div className="flex items-center justify-between">
           <div>
             <Burger
               opened={opened}

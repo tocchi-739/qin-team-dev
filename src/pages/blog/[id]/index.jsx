@@ -5,12 +5,12 @@ import HomeContentTitle from "src/components/HomeContentTitle";
 
 const BlogDetail = () => {
   return (
-    <div className="m-auto max-w-[390px]">
+    <div className="m-auto max-w-[1000px]">
       <Head>
         <title>BlogDetail</title>
       </Head>
       <Header />
-      <main className="pt-[109px]">
+      <main className="mx-4 pt-[109px]">
         <HomeContentTitle title="This is a header" />
 
         <p className="text-xs font-bold text-[#909296]">2022.07.11</p>

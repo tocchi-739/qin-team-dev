@@ -6,14 +6,14 @@ import HomeContentTitle from "src/components/HomeContentTitle";
 
 const Contact = () => {
   return (
-    <div className="m-auto max-w-[390px]">
+    <div className="m-auto max-w-[1000px]">
       <Head>
         <title>Contact</title>
       </Head>
       <Header />
-      <main className="pt-[109px]">
+      <main className="mx-4 pt-[109px]">
         <HomeContentTitle title="Contact" />
-        <form action="" className="mx-4 flex flex-col text-sm">
+        <form action="" className="flex flex-col text-sm">
           <label htmlFor="email">Email</label>
           <input
             id="email"
@@ -35,7 +35,7 @@ const Contact = () => {
             cols="30"
             rows="2"
             placeholder="I want to order your goods"
-            className="mt-1 mb-4 border-[1px] border-[#CED4DA] px-[12px] py-[7px]"
+            className="mt-1 mb-4 border-[1px] border-[#CED4DA] py-[7px] pl-[12px]"
           ></textarea>
         </form>
         <Button text="Send message" href="#" />

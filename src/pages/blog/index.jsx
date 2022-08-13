@@ -20,16 +20,16 @@ const blogList = [
 
 const Blog = () => {
   return (
-    <div className="m-auto max-w-[390px]">
+    <div className="m-auto max-w-[1000px]">
       <Head>
         <title>Blog</title>
       </Head>
       <Header />
-      <main className="pt-[109px]">
+      <main className="mx-4 pt-[109px]">
         <HomeContentTitle title="Blog" />
         {blogList.map((blog) => {
           return (
-            <div className="mx-4 mb-6" key={blog.id}>
+            <div className="mb-6" key={blog.id}>
               <Link href="/blog/1" key={blog.id}>
                 <a className="mt-6 block hover:opacity-60">
                   <h3 className="text-[22px] font-bold">This is a header</h3>
