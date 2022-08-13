@@ -28,11 +28,11 @@ const Portfolio = () => {
             return (
               <Link href="#" key={portfolio.id}>
                 <a className="mt-10 block hover:opacity-60 md:mt-0">
-                  <div className="relative h-[184px] w-full">
+                  <div className="relative h-[184px] min-w-[200px] max-w-[600px]">
                     <Image
                       src="/assets/img/Thumbnail.jpg"
                       layout="fill"
-                      objectFit="contain"
+                      objectFit="cover" //containだとsp版で横いっぱいの表示ができなかった
                       alt="portfolioの画像です"
                     />
                   </div>
