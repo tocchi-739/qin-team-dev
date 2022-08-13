@@ -54,30 +54,34 @@ const Home = () => {
       </Head>
       <Header />
       <main>
-        <div className="h-[248px] bg-[#E64980] text-white">
-          <div className="mx-auto w-[358px] pt-[53.5px]">
-            <h2 className="text-[28px] font-bold">Shimabu IT University</h2>
-            <p className="font-bold">
-              しまぶーのポートフォリオのためのページです
-            </p>
-            <ul className="mt-[43.5px] flex">
-              {svgImages.map((svgImage) => {
-                return (
-                  <li className="mr-2" key={svgImage.id}>
-                    <Link href="#">
-                      <a>
-                        <Image
-                          src={svgImage.src}
-                          width={25}
-                          height={25}
-                          alt={svgImage.alt}
-                        />
-                      </a>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+        <div className="mx-[-16px] h-[248px] bg-[#E64980] text-white  lg:mx-[-1000px]">
+          <div className="mx-auto max-w-[1000px]">
+            <div className="mx-4 flex flex-col pt-[53.5px] lg:flex-row lg:justify-between lg:pt-[85.5px]">
+              <div>
+                <h2 className="text-[28px] font-bold">Shimabu IT University</h2>
+                <p className="font-bold">
+                  しまぶーのポートフォリオのためのページです
+                </p>
+              </div>
+              <ul className="mt-[43.5px] flex">
+                {svgImages.map((svgImage) => {
+                  return (
+                    <li className="mr-2" key={svgImage.id}>
+                      <Link href="#">
+                        <a>
+                          <Image
+                            src={svgImage.src}
+                            width={25}
+                            height={25}
+                            alt={svgImage.alt}
+                          />
+                        </a>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
         </div>
         <div className="mx-4 mt-10">
