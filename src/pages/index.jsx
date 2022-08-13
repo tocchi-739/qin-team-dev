@@ -58,8 +58,10 @@ const Home = () => {
           <div className="mx-auto max-w-[1000px]">
             <div className="mx-4 flex flex-col pt-[53.5px] lg:flex-row lg:justify-between lg:pt-[85.5px]">
               <div>
-                <h2 className="text-[28px] font-bold">Shimabu IT University</h2>
-                <p className="font-bold">
+                <h2 className="text-[28px] font-bold lg:text-4xl">
+                  Shimabu IT University
+                </h2>
+                <p className="mt-1 font-bold">
                   しまぶーのポートフォリオのためのページです
                 </p>
               </div>
