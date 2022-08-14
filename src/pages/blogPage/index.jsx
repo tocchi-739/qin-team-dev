@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import Blog from "src/components/Blog";
+import Blog, { BlogPageBlogList } from "src/components/Blog";
 import Footer from "src/components/Footer";
 import Header from "src/components/Header";
 
@@ -12,7 +12,7 @@ const BlogPage = () => {
       </Head>
       <Header />
       <main>
-        <Blog />
+        <Blog blogList={BlogPageBlogList} />
         <div className="mt-6 text-center">
           <Image
             src="/assets/svgs/Loader.svg"

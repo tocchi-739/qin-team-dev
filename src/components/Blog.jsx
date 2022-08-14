@@ -1,13 +1,25 @@
 import Link from "next/link";
 import HomeContentTitle from "./HomeContentTitle";
 
-const blogList = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
+export const HomePageBlogList = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
+export const BlogPageBlogList = [
+  { id: 1 },
+  { id: 2 },
+  { id: 3 },
+  { id: 4 },
+  { id: 5 },
+  { id: 6 },
+  { id: 7 },
+  { id: 8 },
+  { id: 9 },
+  { id: 10 },
+];
 
-const Blog = () => {
+const Blog = (props) => {
   return (
     <div>
       <HomeContentTitle title="Blog" />
-      {blogList.map((blog) => {
+      {props.blogList.map((blog) => {
         return (
           <Link href="/blogPage/1" key={blog.id}>
             <a className="mt-6 block hover:opacity-60">

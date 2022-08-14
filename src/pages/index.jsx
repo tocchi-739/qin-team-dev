@@ -1,6 +1,5 @@
 import Head from "next/head";
-import Link from "next/link";
-import Blog from "src/components/Blog";
+import Blog, { HomePageBlogList } from "src/components/Blog";
 import Button from "src/components/Button";
 import Footer from "src/components/Footer";
 import Github from "src/components/Github";
@@ -19,7 +18,7 @@ const Home = () => {
       <main>
         <Hero />
         <div className="mx-4 mt-10">
-          <Blog />
+          <Blog blogList={HomePageBlogList} />
           <Button text="View All" href="/blogPage" />
         </div>
         <div className="mx-4 mt-[61px] md:mt-[100px]">
