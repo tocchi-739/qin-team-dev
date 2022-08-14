@@ -15,7 +15,7 @@ const Portfolio = () => {
   return (
     <div>
       <HomeContentTitle title="Protfolio" />
-      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
+      <div className="grid grid-cols-1 pt-3 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
         {portfolioList.map((portfolio) => {
           return (
             <Link href="#" key={portfolio.id}>
