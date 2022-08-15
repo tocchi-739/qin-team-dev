@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Button from "./Button";
 import HomeContentTitle from "./HomeContentTitle";
 
@@ -72,23 +73,28 @@ const Github = (props) => {
               <ul className="flex flex-wrap">
                 {githubProgressDetails.map((githubProgressDetail) => {
                   return (
-                    <li className="mr-2" key={githubProgressDetail.id}>
-                      <span>
-                        <span>
-                          <Image
-                            src={githubProgressDetail.src}
-                            width={6}
-                            height={6}
-                            alt={githubProgressDetail.alt}
-                          />
-                        </span>
-                        <span className="ml-[6px] text-xs font-bold">
-                          {githubProgressDetail.text}
-                        </span>
-                        <span className="ml-[6px] text-xs font-bold text-[#909296]">
-                          {githubProgressDetail.percent}%
-                        </span>
-                      </span>
+                    <li
+                      className="mr-2 hover:text-blue-500"
+                      key={githubProgressDetail.id}
+                    >
+                      <Link href="">
+                        <a>
+                          <span>
+                            <Image
+                              src={githubProgressDetail.src}
+                              width={6}
+                              height={6}
+                              alt={githubProgressDetail.alt}
+                            />
+                          </span>
+                          <span className="ml-[6px] text-xs font-bold">
+                            {githubProgressDetail.text}
+                          </span>
+                          <span className="ml-[6px] text-xs font-bold opacity-70">
+                            {githubProgressDetail.percent}%
+                          </span>
+                        </a>
+                      </Link>
                     </li>
                   );
                 })}
