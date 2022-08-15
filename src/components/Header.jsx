@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <header className="fixed left-0 z-10 h-[65px] w-full bg-white pb-12 pt-[44px]">
-      <div className="mx-auto w-full max-w-[1000px]">
+      <nav className="mx-auto w-full max-w-[1000px]">
         {opened ? (
           <div className="fixed bottom-0 top-0 left-0 z-50 h-screen w-screen bg-[#E64980]">
             <ul className="mt-[100px] ml-7 flex flex-col">
@@ -82,7 +82,7 @@ const Header = () => {
             </button>
           </div>
         </div>
-      </div>
+      </nav>
     </header>
   );
 };
