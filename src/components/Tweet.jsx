@@ -20,9 +20,9 @@ const Tweet = () => {
               />
             </div>
             <div className="w-[80%]">
-              <div className="flex items-center">
+              <div className="flex flex-col md:flex-row md:items-center">
                 <h2 className="font-bold">しまぶーのIT大学</h2>
-                <p className="ml-2 text-xs font-bold text-[#909296]">
+                <p className="text-xs font-bold text-[#909296] md:ml-2">
                   @shimabu_it・5月25日
                 </p>
               </div>
