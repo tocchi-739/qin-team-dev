@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import HomeContentTitle from "./HomeContentTitle";
 
-const portfolioList = [
+export const PcPortfolioList = [
   { id: 1 },
   { id: 2 },
   { id: 3 },
@@ -10,13 +10,15 @@ const portfolioList = [
   { id: 5 },
   { id: 6 },
 ];
+export const HomeSpPortfolioList = PcPortfolioList.slice(0, 3);
+export const SpPortfolioList = PcPortfolioList.slice(0, 4);
 
-const Portfolio = () => {
+const Portfolio = (props) => {
   return (
     <div>
       <HomeContentTitle title="Protfolio" />
-      <div className="grid grid-cols-1 pt-3 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
-        {portfolioList.map((portfolio) => {
+      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6 md:pt-3 lg:grid-cols-3">
+        {props.portfolioList.map((portfolio) => {
           return (
             <Link href="#" key={portfolio.id}>
               <a className="mt-10 block hover:opacity-60 md:mt-0">

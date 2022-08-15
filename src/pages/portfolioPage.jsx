@@ -1,9 +1,14 @@
 import Head from "next/head";
 import Footer from "src/components/Footer";
 import Header from "src/components/Header";
-import Portfolio from "src/components/Portfolio";
+import Portfolio, {
+  PcPortfolioList,
+  SpPortfolioList,
+} from "src/components/Portfolio";
+import useWindowSize from "src/hooks/useWindowSize";
 
 const PortfolioPage = () => {
+  const width = useWindowSize();
   return (
     <div id="wrapper">
       <Head>
@@ -11,7 +16,11 @@ const PortfolioPage = () => {
       </Head>
       <Header />
       <main>
-        <Portfolio />
+        {width < 640 ? (
+          <Portfolio portfolioList={SpPortfolioList} />
+        ) : (
+          <Portfolio portfolioList={PcPortfolioList} />
+        )}
       </main>
       <Footer />
     </div>

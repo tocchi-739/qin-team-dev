@@ -1,7 +1,6 @@
 import Link from "next/link";
 import HomeContentTitle from "./HomeContentTitle";
 
-export const HomePageBlogList = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
 export const BlogPageBlogList = [
   { id: 1 },
   { id: 2 },
@@ -14,6 +13,7 @@ export const BlogPageBlogList = [
   { id: 9 },
   { id: 10 },
 ];
+export const HomePageBlogList = BlogPageBlogList.slice(0, 4);
 
 const Blog = (props) => {
   return (

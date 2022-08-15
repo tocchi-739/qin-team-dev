@@ -2,7 +2,14 @@ import Image from "next/image";
 import Button from "./Button";
 import HomeContentTitle from "./HomeContentTitle";
 
-const githubList = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }];
+export const PcGithubList = [
+  { id: 1 },
+  { id: 2 },
+  { id: 3 },
+  { id: 4 },
+  { id: 5 },
+];
+export const SpGithubList = PcGithubList.slice(0, 3);
 const githubProgressDetails = [
   {
     id: 1,
@@ -27,11 +34,11 @@ const githubProgressDetails = [
   },
 ];
 
-const Github = () => {
+const Github = (props) => {
   return (
     <div className="mx-4 mt-[61px] md:mt-[100px]">
       <HomeContentTitle title="GitHub" />
-      {githubList.map((github) => {
+      {props.githubList.map((github) => {
         return (
           <div className="mt-8 md:mt-10" key={github.id}>
             <h3 className="text-lg font-bold">lightsound/nexts-tailwind</h3>
