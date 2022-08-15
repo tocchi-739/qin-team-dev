@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useMantineColorScheme } from "@mantine/core";
 
 const { default: Link } = require("next/link");
 
@@ -9,8 +10,14 @@ const svgImages = [
 ];
 
 const Hero = () => {
+  const { colorScheme } = useMantineColorScheme();
+  const dark = colorScheme === "dark";
   return (
-    <div className="mx-[-16px] h-[248px] bg-[#E64980] text-white  lg:mx-[-1000px]">
+    <div
+      className={`mx-[-16px] h-[248px] bg-[#E64980] text-white  lg:mx-[-1000px] ${
+        dark ? "bg-[#882a4b]" : ""
+      }`}
+    >
       <div className="mx-auto max-w-[1000px]">
         <div className="mx-4 flex flex-col pt-[53.5px] lg:flex-row lg:justify-between lg:pt-[85.5px]">
           <div>
