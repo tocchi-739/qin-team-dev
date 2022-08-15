@@ -26,7 +26,11 @@ const Header = () => {
     >
       <nav className="mx-auto w-full max-w-[1000px]">
         {opened ? (
-          <div className="fixed bottom-0 top-0 left-0 z-50 h-screen w-screen bg-[#E64980]">
+          <div
+            className={`fixed bottom-0 top-0 left-0 z-50 h-screen w-screen bg-[#E64980] ${
+              dark ? "bg-[#882a4b]" : ""
+            }`}
+          >
             <ul className="mt-[100px] ml-7 flex flex-col">
               {NAV_ITEMS.map((item) => {
                 return (
