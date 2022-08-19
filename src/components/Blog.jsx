@@ -21,7 +21,7 @@ const Blog = (props) => {
       <HomeContentTitle title="Blog" />
       {props.blogList.map((blog) => {
         return (
-          <Link href="/blogPage/1" key={blog.id}>
+          <Link href={`/blogPage/${blog.id}`} key={blog.id}>
             <a className="mt-6 block hover:opacity-60">
               <h3 className="text-[22px] font-bold">This is a header</h3>
               <p className="mt-2 text-ellipsis font-medium line-clamp-2">
