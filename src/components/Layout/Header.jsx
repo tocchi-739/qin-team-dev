@@ -28,7 +28,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed left-0 z-10 h-[65px] w-full bg-white pb-16 pt-[72px] md:pb-12 md:pt-[44px] ${
+      className={`fixed left-0 z-10 h-[65px] w-full bg-white pb-12 pt-[44px] ${
         dark ? "bg-[#1A1B1E]" : ""
       }`}
     >
