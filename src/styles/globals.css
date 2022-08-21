@@ -3,9 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply overflow-scroll;
-  }
   main {
     @apply flex-1;
     @apply pt-[140px];

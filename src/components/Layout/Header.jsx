@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Burger } from "@mantine/core";
 import { ActionIcon, useMantineColorScheme } from "@mantine/core";
 
@@ -17,6 +17,14 @@ const Header = () => {
 
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const dark = colorScheme === "dark";
+
+  useEffect(() => {
+    if (opened) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "scroll";
+    }
+  }, [opened]);
 
   return (
     <header
