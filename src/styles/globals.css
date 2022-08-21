@@ -6,6 +6,7 @@
   main {
     @apply flex-1;
     @apply pt-[140px];
+    @apply md:pt-[120px];
     @apply mx-4;
   }
   #wrapper {
