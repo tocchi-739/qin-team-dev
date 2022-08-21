@@ -57,24 +57,15 @@ const Header = () => {
         ) : null}
 
         <div className="mx-4 flex items-center justify-between">
-          {opened ? (
-            <div className="z-50  ml-1 md:hidden">
-              <Burger
-                opened={opened}
-                onClick={() => setOpened((o) => !o)}
-                title={title}
-                color="#FFFFFF"
-              />
-            </div>
-          ) : (
-            <div className=" ml-1 md:hidden">
-              <Burger
-                opened={opened}
-                onClick={() => setOpened((o) => !o)}
-                title={title}
-              />
-            </div>
-          )}
+          <div className={`ml-1 md:hidden ${opened ? "z-50" : ""}`}>
+            <Burger
+              opened={opened}
+              onClick={() => setOpened((o) => !o)}
+              title={title}
+              color={`${opened ? "#FFFFFF" : ""}`}
+            />
+          </div>
+
           <div className="text-lg font-bold hover:opacity-60">
             <Link href="/">
               <a>Shimabu IT University</a>
