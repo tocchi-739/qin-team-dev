@@ -5,10 +5,10 @@ import { Burger } from "@mantine/core";
 import { ActionIcon, useMantineColorScheme } from "@mantine/core";
 
 const NAV_ITEMS = [
-  { id: 1, href: "/about", label: "About" },
-  { id: 2, href: "/blogPage", label: "Blog" },
-  { id: 3, href: "/portfolioPage", label: "Portfolio" },
-  { id: 4, href: "/contact", label: "Contact" },
+  { href: "/about", label: "About" },
+  { href: "/blogPage", label: "Blog" },
+  { href: "/portfolioPage", label: "Portfolio" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const Header = () => {
@@ -40,11 +40,11 @@ const Header = () => {
             }`}
           >
             <ul className="mt-[100px] ml-7 flex flex-col">
-              {NAV_ITEMS.map((item) => {
+              {NAV_ITEMS.map((item, index) => {
                 return (
                   <li
                     className="mb-4 text-[28px] font-bold text-white"
-                    key={item.id}
+                    key={index}
                   >
                     <Link href={item.href}>
                       <a className="block hover:opacity-60">{item.label}</a>
@@ -82,9 +82,9 @@ const Header = () => {
           </div>
           <div className="flex">
             <ul className="ml-6 hidden md:flex md:items-center">
-              {NAV_ITEMS.map((item) => {
+              {NAV_ITEMS.map((item, index) => {
                 return (
-                  <li className="mr-4 text-lg font-bold" key={item.id}>
+                  <li className="mr-4 text-lg font-bold" key={index}>
                     <Link href={item.href}>
                       <a className="hover:opacity-60">{item.label}</a>
                     </Link>
