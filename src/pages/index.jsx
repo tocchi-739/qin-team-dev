@@ -1,4 +1,4 @@
-import Blog, { HomePageBlogList } from "src/components/Blog";
+import Blog from "src/components/Blog";
 import Button from "src/components/Button";
 import Github, { PcGithubList, SpGithubList } from "src/components/Github";
 import Hero from "src/components/Hero";
@@ -10,13 +10,28 @@ import Tweet from "src/components/Tweet";
 import useWindowSize from "src/hooks/useWindowSize";
 import Layout from "src/components/Layout/Layout";
 
-const Home = () => {
+import { client } from "src/libs/client";
+
+export const getStaticProps = async () => {
+  const data = await client.getList({
+    endpoint: "blog",
+  });
+  return {
+    props: { data },
+  };
+};
+
+const Home = (props) => {
   const width = useWindowSize();
   return (
     <Layout title={"Home"}>
       <Hero />
       <div className="mx-4 mt-10">
-        <Blog blogList={HomePageBlogList} />
+        {width < 640 ? (
+          <Blog blogData={props.data.contents.slice(0, 4)} />
+        ) : (
+          <Blog blogData={props.data.contents.slice(0, 5)} />
+        )}
         <Button text="View All" href="/blogPage" />
       </div>
       <div className="mx-4 mt-[61px] md:mt-[100px]">
