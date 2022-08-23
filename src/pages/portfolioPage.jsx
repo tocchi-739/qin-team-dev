@@ -1,18 +1,25 @@
 import Layout from "src/components/Layout/Layout";
-import Portfolio, {
-  PcPortfolioList,
-  SpPortfolioList,
-} from "src/components/Portfolio";
+import Portfolio from "src/components/Portfolio";
 import useWindowSize from "src/hooks/useWindowSize";
+import { client } from "src/libs/client";
 
-const PortfolioPage = () => {
+export const getStaticProps = async () => {
+  const portfolioData = await client.getList({
+    endpoint: "portfolio",
+  });
+  return {
+    props: { portfolio: portfolioData },
+  };
+};
+
+const PortfolioPage = (props) => {
   const width = useWindowSize();
   return (
     <Layout title={"Portfolio"}>
       {width < 640 ? (
-        <Portfolio portfolioList={SpPortfolioList} />
+        <Portfolio portfolioList={props.portfolio.contents.slice(0, 4)} />
       ) : (
-        <Portfolio portfolioList={PcPortfolioList} />
+        <Portfolio portfolioList={props.portfolio.contents} />
       )}
     </Layout>
   );
