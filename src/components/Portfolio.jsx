@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import Image from "next/image";
 import Link from "next/link";
 import HomeContentTitle from "./HomeContentTitle";
@@ -24,7 +25,9 @@ const Portfolio = (props) => {
                 </h3>
                 <p className="mt-2">{portfolio.description}</p>
                 <p className="mt-2 text-xs font-bold text-[#909296]">
-                  {portfolio.productionPeriod}
+                  {`${dayjs(portfolio.productionStart).format(
+                    "YYYY.MM"
+                  )}-${dayjs(portfolio.productionEnd).format("YYYY.MM")}`}
                 </p>
               </a>
             </Link>
