@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    @apply overflow-x-hidden;
+  }
   main {
     @apply flex-1;
     @apply pt-[140px];
