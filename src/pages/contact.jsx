@@ -8,6 +8,11 @@ import Layout from "src/components/Layout/Layout";
 const Contact = () => {
   const { colorScheme } = useMantineColorScheme();
   const dark = colorScheme === "dark";
+
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
+
   const handleSubmit = async () => {
     const url = "https://qin-team-dev-blog.microcms.io/api/v1/contact";
     const data = {
@@ -15,16 +20,23 @@ const Contact = () => {
       name,
       message,
     };
-    await axios.post(url, data, {
-      headers: {
-        "Content-Type": "application/json",
-        "X-MICROCMS-API-KEY": process.env.NEXT_PUBLIC_BLOG_API_KEY, // 作成したAPI-KEY
-      },
-    });
+    await axios
+      .post(url, data, {
+        headers: {
+          "Content-Type": "application/json",
+          "X-MICROCMS-API-KEY": process.env.NEXT_PUBLIC_BLOG_API_KEY, // 作成したAPI-KEY
+        },
+      })
+      .then(function (response) {
+        console.log(response);
+        setEmail(""), setName(""), setMessage("");
+        alert("フォームを送信しました");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [message, setMessage] = useState("");
+
   return (
     <Layout title={"Contact"}>
       <HomeContentTitle title="Contact" />
@@ -36,6 +48,7 @@ const Contact = () => {
           placeholder="your@email.com"
           className="mt-1 mb-4 border-[1px] border-[#CED4DA] px-[12px] py-[7px]"
           onChange={(e) => setEmail(e.target.value)}
+          value={email}
         />
         <label htmlFor="name">Name</label>
         <input
@@ -44,6 +57,7 @@ const Contact = () => {
           placeholder="Taro Yamada"
           className="mt-1 mb-4 border-[1px] border-[#CED4DA] px-[12px] py-[7px]"
           onChange={(e) => setName(e.target.value)}
+          value={name}
         />
         <label htmlFor="message">Your message</label>
         <textarea
@@ -54,6 +68,7 @@ const Contact = () => {
           placeholder="I want to order your goods"
           className="mt-1 mb-4 border-[1px] border-[#CED4DA] py-[7px] pl-[12px]"
           onChange={(e) => setMessage(e.target.value)}
+          value={message}
         ></textarea>
       </form>
       {/* <Button text="Send message" href="/contact" /> */}
