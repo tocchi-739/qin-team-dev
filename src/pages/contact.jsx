@@ -14,6 +14,18 @@ const Contact = () => {
   const [message, setMessage] = useState("");
 
   const handleSubmit = async () => {
+    //バリデーションここから
+    const regex =
+      /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/; //メールアドレス正規表現 username@example.com
+    if (!regex.test(email)) {
+      alert("メールアドレスに誤りがあります");
+      return;
+    } else if ((email == "") | (name == "") | (message == "")) {
+      alert("空欄を埋めてください");
+      return;
+    }
+    //バリデーションここまで
+
     const url = "https://qin-team-dev-blog.microcms.io/api/v1/contact";
     const data = {
       email,
