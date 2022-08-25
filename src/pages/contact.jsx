@@ -8,39 +8,19 @@ import Layout from "src/components/Layout/Layout";
 const Contact = () => {
   const { colorScheme } = useMantineColorScheme();
   const dark = colorScheme === "dark";
-  const [postId, setPostId] = useState(null);
-  // const handleSubmit = async () => {
-  //   const requestOptions = {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       "X-MICROCMS-API-KEY": process.env.BLOG_API_KEY, // 作成したAPI-KEY
-  //     },
-  //     body: JSON.stringify({ email: email, name: name, message: message }),
-  //   };
-  //   const response = await fetch(
-  //     "https://qin-team-dev-blog.microcms.io/api/v1/contact",
-  //     requestOptions
-  //   )
-  //     .then((response) => response.json())
-  //     .then((data) => setPostId(data.id));
-  // };
   const handleSubmit = async () => {
+    const url = "https://qin-team-dev-blog.microcms.io/api/v1/contact";
     const data = {
       email,
       name,
       message,
     };
-    await axios.post(
-      "https://qin-team-dev-blog.microcms.io/api/v1/contact",
-      { email: email, name: name, message: message },
-      {
-        headers: {
-          "Content-Type": "application/json",
-          "X-MICROCMS-API-KEY": process.env.BLOG_API_KEY, // 作成したAPI-KEY
-        },
-      }
-    );
+    await axios.post(url, data, {
+      headers: {
+        "Content-Type": "application/json",
+        "X-MICROCMS-API-KEY": process.env.NEXT_PUBLIC_BLOG_API_KEY, // 作成したAPI-KEY
+      },
+    });
   };
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
