@@ -14,7 +14,7 @@ const Contact = () => {
   const [message, setMessage] = useState("");
 
   const handleSubmit = async () => {
-    //バリデーションここから
+    // バリデーションここから;
     const regex =
       /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/; //メールアドレス正規表現 username@example.com
     if (!regex.test(email)) {
@@ -24,29 +24,28 @@ const Contact = () => {
       alert("空欄を埋めてください");
       return;
     }
-    //バリデーションここまで
+    // バリデーションここまで;
 
-    const url = "https://qin-team-dev-blog.microcms.io/api/v1/contact";
-    const data = {
+    const inputData = {
       email,
       name,
       message,
     };
-    await axios
-      .post(url, data, {
-        headers: {
-          "Content-Type": "application/json",
-          "X-MICROCMS-API-KEY": process.env.NEXT_PUBLIC_BLOG_API_KEY, // 作成したAPI-KEY
-        },
-      })
-      .then(function (response) {
-        console.log(response);
-        setEmail(""), setName(""), setMessage("");
-        alert("フォームを送信しました");
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    const data = await fetch("/api/contactPost", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ inputData }),
+    });
+    const json = await data.json();
+    if (json) {
+      console.log(json);
+      setEmail(""), setName(""), setMessage("");
+      alert("フォームを送信しました");
+    } else {
+      alert("エラーです");
+    }
   };
 
   return (
