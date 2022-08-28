@@ -14,12 +14,12 @@ export const Pagination = ({ totalCount }) => {
       {range(1, Math.ceil(totalCount / PER_PAGE)).map((number, index) => (
         <li
           key={index}
-          className={`mr-2 flex h-8 w-8 items-center justify-center text-white hover:opacity-60 ${
+          className={`mr-2 text-white  hover:opacity-60 ${
             dark ? "bg-[#676767]" : "bg-gray-800"
           }`}
         >
           <Link href={`/blogPage/page/${number}`}>
-            <a className="block">{number}</a>
+            <a className="block px-4 py-2">{number}</a>
           </Link>
         </li>
       ))}
