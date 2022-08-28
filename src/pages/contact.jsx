@@ -40,7 +40,6 @@ const Contact = () => {
     });
     const json = await data.json();
     if (json) {
-      console.log(json);
       setEmail(""), setName(""), setMessage("");
       alert("フォームを送信しました");
     } else {
