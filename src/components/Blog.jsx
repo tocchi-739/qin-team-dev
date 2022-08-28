@@ -9,11 +9,11 @@ const Blog = (props) => {
       <HomeContentTitle title="Blog" />
       {blogDataList.map((blog) => {
         return (
-          <Link href={`/blogPage/${blog.id}`} key={blog.id}>
+          <Link href={`/blogPage/${blog.id}`} key={blog.id} prefetch={false}>
             <a className="mt-6 block hover:opacity-60">
               <h3 className="text-[22px] font-bold">{blog.title}</h3>
               <div
-                className="mt-2 text-ellipsis font-medium line-clamp-2"
+                className="line-clamp-2 mt-2 text-ellipsis font-medium"
                 dangerouslySetInnerHTML={{ __html: blog.body }}
               />
               <time

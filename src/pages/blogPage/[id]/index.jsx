@@ -15,7 +15,7 @@ const BlogDetail = (props) => {
         {dayjs(props.data.publishedAt).format("YYYY.MM.DD")}
       </time>
       <div
-        className="mt-2 text-ellipsis leading-6  line-clamp-2"
+        className="line-clamp-2 mt-2 text-ellipsis  leading-6"
         dangerouslySetInnerHTML={{ __html: props.data.body }}
       />
     </Layout>
@@ -27,7 +27,7 @@ export const getStaticPaths = async () => {
   const ids = data.contents.map((content) => `/blogPage/${content.id}`);
   return {
     paths: ids,
-    fallback: false,
+    fallback: "blocking",
   };
 };
 
