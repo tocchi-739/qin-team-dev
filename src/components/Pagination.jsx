@@ -1,17 +1,25 @@
+import { useMantineColorScheme } from "@mantine/core";
 import Link from "next/link";
 
 export const Pagination = ({ totalCount }) => {
+  const { colorScheme } = useMantineColorScheme();
+  const dark = colorScheme === "dark";
   const PER_PAGE = 10;
 
   const range = (start, end) =>
     [...Array(end - start + 1)].map((_, i) => start + i);
 
   return (
-    <ul>
+    <ul className="mt-10 flex justify-center">
       {range(1, Math.ceil(totalCount / PER_PAGE)).map((number, index) => (
-        <li key={index}>
+        <li
+          key={index}
+          className={`mr-2 flex h-8 w-8 items-center justify-center text-white hover:opacity-60 ${
+            dark ? "bg-[#676767]" : "bg-gray-800"
+          }`}
+        >
           <Link href={`/blogPage/page/${number}`}>
-            <a>{number}</a>
+            <a className="block">{number}</a>
           </Link>
         </li>
       ))}
