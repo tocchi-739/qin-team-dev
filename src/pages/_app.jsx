@@ -1,6 +1,7 @@
 import "src/styles/globals.css";
 import { MantineProvider, ColorSchemeProvider } from "@mantine/core";
 import { useState } from "react";
+import { Toaster } from "react-hot-toast";
 
 const MyApp = ({ Component, pageProps }) => {
   const [colorScheme, setColorScheme] = useState("light");

@@ -4,6 +4,9 @@ import { useState } from "react";
 import Button from "src/components/Button";
 import HomeContentTitle from "src/components/HomeContentTitle";
 import Layout from "src/components/Layout/Layout";
+import toast, { Toaster } from "react-hot-toast";
+
+const notify = () => toast("Here is your toast.");
 
 const Contact = () => {
   const { colorScheme } = useMantineColorScheme();
@@ -18,10 +21,10 @@ const Contact = () => {
     const regex =
       /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/; //メールアドレス正規表現 username@example.com
     if (!regex.test(email)) {
-      alert("メールアドレスに誤りがあります");
+      toast.error("メールアドレスに誤りがあります");
       return;
     } else if ((email == "") | (name == "") | (message == "")) {
-      alert("空欄を埋めてください");
+      toast.error("空欄を埋めてください");
       return;
     }
     // バリデーションここまで;
@@ -41,9 +44,9 @@ const Contact = () => {
     const json = await data.json();
     if (json) {
       setEmail(""), setName(""), setMessage("");
-      alert("フォームを送信しました");
+      toast.success("フォームを送信しました");
     } else {
-      alert("エラーです");
+      toast.error("エラーです");
     }
   };
 
@@ -95,6 +98,7 @@ const Contact = () => {
           Send message
         </a>
       </button>
+      <Toaster />
     </Layout>
   );
 };
