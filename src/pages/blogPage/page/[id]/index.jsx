@@ -25,7 +25,7 @@ export const getStaticPaths = async () => {
   const paths = range(1, Math.ceil(repos.totalCount / PER_PAGE)).map(
     (repo) => `/blogPage/page/${repo}`
   );
-  return { paths, fallback: false };
+  return { paths, fallback: "blocking" };
 };
 
 export const getStaticProps = async (ctx) => {
