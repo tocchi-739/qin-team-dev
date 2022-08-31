@@ -1,7 +1,5 @@
 import { useMantineColorScheme } from "@mantine/core";
-import axios from "axios";
 import { useState } from "react";
-import Button from "src/components/Button";
 import HomeContentTitle from "src/components/HomeContentTitle";
 import Layout from "src/components/Layout/Layout";
 import toast, { Toaster } from "react-hot-toast";
@@ -84,7 +82,6 @@ const Contact = () => {
           value={message}
         ></textarea>
       </form>
-      {/* <Button text="Send message" href="/contact" /> */}
       <button
         type="submit"
         onClick={handleSubmit}

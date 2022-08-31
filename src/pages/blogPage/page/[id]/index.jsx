@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Blog from "src/components/Blog";
 import Layout from "src/components/Layout/Layout";
 import { Pagination } from "src/components/Pagination";
@@ -35,7 +34,6 @@ export const getStaticProps = async (ctx) => {
     queries: { offset: (contentId - 1) * 10, limit: 10 },
     contentId,
   });
-  console.log(data);
   return {
     props: {
       blog: data.contents,
