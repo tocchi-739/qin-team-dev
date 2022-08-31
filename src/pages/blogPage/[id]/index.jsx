@@ -36,6 +36,7 @@ export const getStaticProps = async (ctx) => {
     endpoint: "blog",
     contentId: ctx.params.id,
   });
+  console.log(`${data.title}がSG化されました`);
   return {
     props: { data },
   };
