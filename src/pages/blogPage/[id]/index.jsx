@@ -14,8 +14,8 @@ const BlogDetail = (props) => {
       >
         {dayjs(props.data.publishedAt).format("YYYY.MM.DD")}
       </time>
-      <div
-        className="mt-2 leading-6"
+      <article
+        className="prose prose-sm mt-2 leading-6"
         dangerouslySetInnerHTML={{ __html: props.data.body }}
       />
     </Layout>
