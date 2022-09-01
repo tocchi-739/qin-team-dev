@@ -14,6 +14,7 @@ const Blog = (props) => {
               <h3 className="text-[22px] font-bold">{blog.title}</h3>
               <div
                 className="line-clamp-2 mt-2 text-ellipsis font-medium"
+                id="blogList" //idを指定して、id以下のCSSを指定したい
                 dangerouslySetInnerHTML={{ __html: blog.body }}
               />
               <time
