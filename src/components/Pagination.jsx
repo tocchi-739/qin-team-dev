@@ -23,9 +23,13 @@ export const Pagination = ({ totalCount }) => {
               : "bg-inherit"
           }  `}
         >
-          <Link href={`/blogPage/page/${number}`}>
-            <a className="block px-4 py-2">{number}</a>
-          </Link>
+          {number == pageNumber ? (
+            <div className="block px-4 py-2">{number}</div>
+          ) : (
+            <Link href={`/blogPage/page/${number}`}>
+              <a className="block px-4 py-2">{number}</a>
+            </Link>
+          )}
         </li>
       ))}
     </ul>
