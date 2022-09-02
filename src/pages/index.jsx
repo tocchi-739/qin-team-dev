@@ -32,7 +32,7 @@ const Home = (props) => {
         ) : (
           <Blog blogData={props.blog.contents.slice(0, 5)} />
         )}
-        <Button text="View All" href="/blogPage" />
+        <Button text="View All" href="/blogPage/page/1" />
       </div>
       <div className="mx-4 mt-[61px] md:mt-[100px]">
         {width < 640 ? (
