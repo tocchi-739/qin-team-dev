@@ -6,7 +6,7 @@ import { ActionIcon, useMantineColorScheme } from "@mantine/core";
 
 const NAV_ITEMS = [
   { href: "/about", label: "About" },
-  { href: "/blogPage", label: "Blog" },
+  { href: "/blogPage/page/1", label: "Blog" },
   { href: "/portfolioPage", label: "Portfolio" },
   { href: "/contact", label: "Contact" },
 ];
