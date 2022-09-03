@@ -7,6 +7,7 @@ const Layout = (props) => {
     <div id="wrapper">
       <Head>
         <title>{props.title}</title>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
       <main>{props.children}</main>
