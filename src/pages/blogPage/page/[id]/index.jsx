@@ -5,7 +5,7 @@ import { client } from "src/libs/client";
 
 const PER_PAGE = 10;
 
-const BlogPagedId = (props) => {
+const BlogPage = (props) => {
   return (
     <Layout title={"Blog"}>
       <Blog blogData={props.blog} />
@@ -42,4 +42,4 @@ export const getStaticProps = async (ctx) => {
   };
 };
 
-export default BlogPagedId;
+export default BlogPage;
