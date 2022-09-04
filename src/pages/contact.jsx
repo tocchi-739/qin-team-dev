@@ -32,7 +32,7 @@ const Contact = () => {
       name,
       message,
     };
-    toast.loading("loading");
+    toast.loading("送信中...");
     const data = await fetch("/api/contactPost", {
       method: "POST",
       headers: {
