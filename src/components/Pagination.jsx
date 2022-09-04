@@ -9,12 +9,12 @@ export const Pagination = ({ totalCount }) => {
   const router = useRouter();
   const pageNumber = router.query.id;
 
-  const range = (start, end) =>
-    [...Array(end - start + 1)].map((_, i) => start + i);
+  const getRangeArray = (totalCount, perPage) =>
+    [...Array(Math.ceil(totalCount / perPage))].map((_, index) => index + 1);
 
   return (
     <ul className="mt-10 flex justify-center">
-      {range(1, Math.ceil(totalCount / PER_PAGE)).map((number, index) => (
+      {getRangeArray(totalCount, PER_PAGE).map((number, index) => (
         <li
           key={index}
           className={`mr-2   rounded-full hover:opacity-60 ${
