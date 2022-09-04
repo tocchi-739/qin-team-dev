@@ -4,12 +4,7 @@ import { useEffect, useState } from "react";
 import { Burger } from "@mantine/core";
 import { ActionIcon, useMantineColorScheme } from "@mantine/core";
 
-const NAV_ITEMS = [
-  { href: "/about", label: "About" },
-  { href: "/blogPage/page/1", label: "Blog" },
-  { href: "/portfolioPage", label: "Portfolio" },
-  { href: "/contact", label: "Contact" },
-];
+import NavItems from "./NavItems";
 
 const Header = () => {
   const [opened, setOpened] = useState(false);
@@ -39,20 +34,7 @@ const Header = () => {
               dark ? "bg-[#882a4b]" : ""
             }`}
           >
-            <ul className="mt-[100px] ml-7 flex flex-col">
-              {NAV_ITEMS.map((item, index) => {
-                return (
-                  <li
-                    className="mb-4 text-[28px] font-bold text-white"
-                    key={index}
-                  >
-                    <Link href={item.href}>
-                      <a className="block hover:opacity-60">{item.label}</a>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+            <NavItems />
           </div>
         ) : null}
 
@@ -72,20 +54,8 @@ const Header = () => {
             </Link>
           </div>
           <div className="flex">
-            <ul className="ml-6 hidden md:flex md:items-center">
-              {NAV_ITEMS.map((item, index) => {
-                return (
-                  <li className="mr-4 text-lg font-bold" key={index}>
-                    <Link href={item.href}>
-                      <a className="hover:opacity-60">{item.label}</a>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-            {/* <button className="hover:opacity-60"> */}
+            <NavItems width="md" />
             <ActionIcon
-              // variant="outline"
               color={dark ? "yellow" : "blue"}
               onClick={() => toggleColorScheme()}
               title="Toggle color scheme"
