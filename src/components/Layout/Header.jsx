@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Burger } from "@mantine/core";
 import { ActionIcon, useMantineColorScheme } from "@mantine/core";
+
 import NavItems from "./NavItems";
 
 const Header = () => {
