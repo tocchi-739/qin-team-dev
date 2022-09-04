@@ -10,7 +10,11 @@ const Portfolio = (props) => {
       <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6 md:pt-3 lg:grid-cols-3">
         {props.portfolioList.map((portfolio) => {
           return (
-            <Link href="#" key={portfolio.id}>
+            <Link
+              href={`/portfolioPage/${portfolio.id}`}
+              key={portfolio.id}
+              prefetch={false}
+            >
               <a className="mt-10 block hover:opacity-60 md:mt-0">
                 <div className="relative h-[184px] min-w-[200px] max-w-[700px]">
                   <Image
