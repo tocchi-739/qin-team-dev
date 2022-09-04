@@ -32,6 +32,7 @@ const Contact = () => {
       name,
       message,
     };
+    toast.loading("loading");
     const data = await fetch("/api/contactPost", {
       method: "POST",
       headers: {
@@ -39,7 +40,9 @@ const Contact = () => {
       },
       body: JSON.stringify({ inputData }),
     });
+    toast.remove();
     const json = await data.json();
+
     if (json) {
       setEmail(""), setName(""), setMessage("");
       toast.success("フォームを送信しました");
