@@ -19,11 +19,14 @@ export const getStaticProps = async () => {
   });
 
   const readOnlyClient = twitterClient.readOnly;
-  const user = await readOnlyClient.v2.userByUsername("uolYUd2kPpw3yRY", {
-    "user.fields": "profile_image_url",
-  });
+  const user = await readOnlyClient.v2.userByUsername(
+    process.env.TWITTER_USER_NAME,
+    {
+      "user.fields": "profile_image_url",
+    }
+  );
   const tweets = await twitterClient.v2.get(
-    "users/1231153112464838661/tweets",
+    `users/${process.env.TWITTER_USER_ID}/tweets`,
     {
       max_results: 5,
       "tweet.fields": ["created_at"],
