@@ -1,54 +1,42 @@
-import Image from "next/image";
+import dayjs from "dayjs";
 import Button from "./Button";
 import HomeContentTitle from "./HomeContentTitle";
 
-const tweetList = [{ id: 1 }, { id: 2 }, { id: 3 }];
-
-const Tweet = () => {
+const Tweet = (props) => {
+  const user = props.twitterUser;
   return (
     <div className="mx-4 mt-[61px] md:mt-[100px]">
       <HomeContentTitle title="Twitter" />
-      {tweetList.map((tweet) => {
+      {props.tweetsData.map((tweet) => {
         return (
-          <div className="mt-10 mb-[56px] flex" key={tweet.id}>
+          <div className="mt-10 mb-[44px] flex md:min-h-[260px]" key={tweet.id}>
             <div className="mr-4">
-              <Image
-                src="/assets/img/TwitterAccountImage.jpg"
-                width={38}
-                height={38}
+              <img
+                src={user.profile_image_url}
                 alt="twitterアカウント画像"
+                className="rounded-full"
               />
             </div>
             <div className="w-[80%]">
               <div className="flex flex-col md:flex-row md:items-center">
-                <h2 className="font-bold">しまぶーのIT大学</h2>
+                <h2 className="font-bold">{user.name}</h2>
                 <p className="text-xs font-bold text-[#909296] md:ml-2">
-                  @shimabu_it・5月25日
+                  {`@${user.username}・${dayjs(tweet.created_at).format(
+                    "M月D日"
+                  )}`}
                 </p>
               </div>
-              <p className="mt-1 text-sm">
-                📣 新サービス「Noway Form」をリリースしました！
-                <br />
-                <br />
-                NowayFormは、Notionのデータベースをもとにフォームを作成できるサービスです。これまでGoogle
-                FormsでやっていたことがNotionだけで完結します✌✨
-                <br />
-                <br />
-                試しに使っていただけると幸いです😊
-                <br />
-                <br />
-                <a
-                  href="https://www.noway-form.com/ja"
-                  className="text-[#228BE6]"
-                >
-                  https://www.noway-form.com/ja
-                </a>
-              </p>
+              <p className="mt-1 leading-6">{tweet.text}</p>
             </div>
           </div>
         );
       })}
-      <Button text="View on Twitter" href="#" />
+      <Button
+        text="View on Twitter"
+        href="https://twitter.com/uolYUd2kPpw3yRY"
+        target="_blank"
+        rel="noopener noreferrer"
+      />
     </div>
   );
 };

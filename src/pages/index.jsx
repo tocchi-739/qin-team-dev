@@ -8,6 +8,7 @@ import useWindowSize from "src/hooks/useWindowSize";
 import Layout from "src/components/Layout/Layout";
 
 import { client } from "src/libs/client";
+import { twitterClient } from "src/libs/twitterClient";
 
 export const getStaticProps = async () => {
   const blogData = await client.getList({
@@ -16,8 +17,27 @@ export const getStaticProps = async () => {
   const portfolioData = await client.getList({
     endpoint: "portfolio",
   });
+
+  const readOnlyClient = twitterClient.readOnly;
+  const user = await readOnlyClient.v2.userByUsername("uolYUd2kPpw3yRY", {
+    "user.fields": "profile_image_url",
+  });
+  const tweets = await twitterClient.v2.get(
+    "users/1231153112464838661/tweets",
+    {
+      max_results: 5,
+      "tweet.fields": ["created_at"],
+      // expansions: ["author_id"], userの情報を取得するための指定
+      // "user.fields": ["profile_image_url"], userの情報を取得しようとしたが、うまく取得できなかった。includesが必要になりそう
+    }
+  );
   return {
-    props: { blog: blogData, portfolio: portfolioData },
+    props: {
+      blog: blogData,
+      portfolio: portfolioData,
+      user: user,
+      tweets: tweets,
+    },
   };
 };
 
@@ -48,7 +68,10 @@ const Home = (props) => {
         ) : (
           <Github githubList={PcGithubList} />
         )}
-        <Tweet />
+        <Tweet
+          twitterUser={props.user.data}
+          tweetsData={props.tweets.data.slice(0, 3)}
+        />
       </div>
     </Layout>
   );
