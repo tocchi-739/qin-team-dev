@@ -10,7 +10,7 @@ const Button = (props) => {
         <a
           target={props.target}
           rel={props.rel}
-          className={`inline-block rounded-full px-[22px] py-[10px] text-center text-white hover:opacity-60 ${
+          className={`inline-block rounded-full px-[22px] py-[10px] text-center text-white transition duration-200 hover:opacity-60 ${
             dark ? "bg-[#676767]" : "bg-gray-800"
           }`}
         >

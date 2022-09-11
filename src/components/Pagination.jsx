@@ -17,7 +17,7 @@ export const Pagination = ({ totalCount }) => {
       {getRangeArray(totalCount, PER_PAGE).map((number, index) => (
         <li
           key={index}
-          className={`mr-2   rounded-full hover:opacity-60 ${
+          className={`mr-2 rounded-full transition duration-200 hover:opacity-60 ${
             number == pageNumber
               ? `${dark ? "bg-gray-300 text-black" : "bg-gray-800 text-white"}`
               : "bg-inherit"

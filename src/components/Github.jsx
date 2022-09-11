@@ -74,7 +74,7 @@ const Github = (props) => {
                 {githubProgressDetails.map((githubProgressDetail) => {
                   return (
                     <li
-                      className="mr-2 hover:text-blue-500"
+                      className="mr-2 transition duration-200 hover:text-blue-500"
                       key={githubProgressDetail.id}
                     >
                       <Link href="">

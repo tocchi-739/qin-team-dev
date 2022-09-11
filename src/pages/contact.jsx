@@ -91,7 +91,7 @@ const Contact = () => {
         className="mx-auto mt-6 flex md:mt-10"
       >
         <a
-          className={`inline-block rounded-full px-[18px] py-[12px] text-center text-white hover:opacity-60  ${
+          className={`inline-block rounded-full px-[18px] py-[12px] text-center text-white transition duration-200 hover:opacity-60  ${
             dark ? "bg-[#676767]" : "bg-gray-800"
           }`}
         >

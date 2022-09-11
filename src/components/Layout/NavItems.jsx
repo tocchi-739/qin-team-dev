@@ -28,7 +28,7 @@ const NavItems = (props) => {
           >
             <Link href={item.href}>
               <a
-                className={`hover:opacity-60 ${
+                className={`transition duration-200 hover:opacity-60 ${
                   props.width == "md" ? "" : "block"
                 }`}
               >

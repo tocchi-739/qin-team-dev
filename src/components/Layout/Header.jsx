@@ -48,7 +48,7 @@ const Header = () => {
             />
           </div>
 
-          <div className="text-lg font-bold hover:opacity-60">
+          <div className="text-lg font-bold transition duration-200 hover:opacity-60">
             <Link href="/">
               <a>Shimabu IT University</a>
             </Link>

@@ -15,13 +15,14 @@ const Portfolio = (props) => {
               key={portfolio.id}
               prefetch={false}
             >
-              <a className="mt-10 block hover:opacity-60 md:mt-0">
+              <a className="group mt-10 block transition duration-200 hover:opacity-60 md:mt-0">
                 <div className="relative h-[184px] min-w-[200px] max-w-[700px]">
                   <Image
                     src={portfolio.thumbnail.url}
                     layout="fill"
                     objectFit="cover" //containだとsp版で横いっぱいの表示ができなかった
                     alt="portfolioの画像です"
+                    className="transition duration-500 group-hover:scale-110"
                   />
                 </div>
                 <h3 className="mt-2 text-[22px] font-bold">
