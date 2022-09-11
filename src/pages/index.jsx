@@ -41,6 +41,7 @@ export const getStaticProps = async () => {
       user: user,
       tweets: tweets,
     },
+    revalidate: 10,
   };
 };
 
