@@ -10,10 +10,12 @@ const Tweet = (props) => {
       <HomeContentTitle title="Twitter" />
       {props.tweetsData.map((tweet) => {
         return (
-          <Link href={`https://twitter.com/uolYUd2kPpw3yRY/status/${tweet.id}`}>
+          <Link
+            href={`https://twitter.com/uolYUd2kPpw3yRY/status/${tweet.id}`}
+            key={tweet.id}
+          >
             <a
               className="mt-10 mb-[44px] flex transition duration-200 hover:opacity-60 md:min-h-[260px] "
-              key={tweet.id}
               target="_blank"
               rel="noopener noreferrer"
             >
