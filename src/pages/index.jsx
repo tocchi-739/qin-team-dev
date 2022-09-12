@@ -28,11 +28,24 @@ export const getStaticProps = async () => {
   const tweets = await twitterClient.v2.get(
     `users/${process.env.TWITTER_USER_ID}/tweets`,
     {
-      max_results: 5,
+      max_results: 10,
       "tweet.fields": ["created_at"],
+      exclude: ["retweets", "replies"],
       // expansions: ["author_id"], userの情報を取得するための指定
       // "user.fields": ["profile_image_url"], userの情報を取得しようとしたが、うまく取得できなかった。includesが必要になりそう
     }
+  );
+  const embedTweets = await Promise.all(
+    tweets.data.map(async (tweet) => {
+      const { id } = tweet;
+      const url = `https://publish.twitter.com/oembed?url=https://twitter.com/uolYUd2kPpw3yRY/status/${id}`;
+      const data = await fetch(url);
+      const { html } = await data.json();
+      if (typeof html !== "string") {
+        return { ...tweet, html: "" };
+      }
+      return { ...tweet, html };
+    })
   );
   return {
     props: {
@@ -40,6 +53,7 @@ export const getStaticProps = async () => {
       portfolio: portfolioData,
       user: user,
       tweets: tweets,
+      embedTweets: embedTweets,
     },
     revalidate: 10,
   };
@@ -74,7 +88,9 @@ const Home = (props) => {
         )}
         <Tweet
           twitterUser={props.user.data}
-          tweetsData={props.tweets.data.slice(0, 3)}
+          embedTweets={
+            width < 640 ? props.embedTweets.slice(0, 3) : props.embedTweets
+          }
         />
       </div>
     </Layout>
