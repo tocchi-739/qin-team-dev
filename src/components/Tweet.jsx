@@ -38,12 +38,12 @@ const Tweet = (props) => {
                     </p>
                   </div>
                   <TypographyStylesProvider>
-                    <p
+                    <div
                       className="mt-1 leading-6"
                       dangerouslySetInnerHTML={{
                         __html: tweet.html
                           .split(`<blockquote class="twitter-tweet">`)[1]
-                          .split("&mdash;")[0],
+                          .split(`&mdash;`)[0],
                       }}
                     />
                   </TypographyStylesProvider>
