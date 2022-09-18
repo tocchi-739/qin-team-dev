@@ -18,27 +18,21 @@ export const getStaticProps = async () => {
     endpoint: "portfolio",
   });
 
-  const readOnlyClient = twitterClient.readOnly;
-  const user = await readOnlyClient.v2.userByUsername(
-    process.env.TWITTER_USER_NAME,
-    {
-      "user.fields": "profile_image_url",
-    }
-  );
   const tweets = await twitterClient.v2.get(
     `users/${process.env.TWITTER_USER_ID}/tweets`,
     {
       max_results: 10,
       "tweet.fields": ["created_at"],
       exclude: ["retweets", "replies"],
-      // expansions: ["author_id"], userの情報を取得するための指定
-      // "user.fields": ["profile_image_url"], userの情報を取得しようとしたが、うまく取得できなかった。includesが必要になりそう
+      expansions: ["author_id"], //userの情報を取得するための指定
+      "user.fields": ["profile_image_url"],
     }
   );
   const embedTweets = await Promise.all(
     tweets.data.map(async (tweet) => {
+      const username = tweets.includes.users[0].username;
       const { id } = tweet;
-      const url = `https://publish.twitter.com/oembed?url=https://twitter.com/uolYUd2kPpw3yRY/status/${id}`;
+      const url = `https://publish.twitter.com/oembed?url=https://twitter.com/${username}/status/${id}`;
       const data = await fetch(url);
       const { html } = await data.json();
       if (typeof html !== "string") {
@@ -51,7 +45,7 @@ export const getStaticProps = async () => {
     props: {
       blog: blogData,
       portfolio: portfolioData,
-      user: user,
+      user: tweets.includes.users[0],
       tweets: tweets,
       embedTweets: embedTweets,
     },
@@ -60,6 +54,7 @@ export const getStaticProps = async () => {
 };
 
 const Home = (props) => {
+  console.log(props.user);
   const width = useWindowSize();
   return (
     <Layout title={"Home"}>
@@ -87,7 +82,7 @@ const Home = (props) => {
           <Github githubList={PcGithubList} />
         )}
         <Tweet
-          twitterUser={props.user.data}
+          twitterUser={props.user}
           embedTweets={
             width < 640 ? props.embedTweets.slice(0, 3) : props.embedTweets
           }
