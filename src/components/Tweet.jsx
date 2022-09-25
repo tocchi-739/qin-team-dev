@@ -9,11 +9,11 @@ const Tweet = (props) => {
   return (
     <div className="mx-4 mt-[61px] md:mt-[100px]">
       <HomeContentTitle title="Twitter" />
-      <div className="md:h-[889px] md:overflow-y-scroll">
+      <div className="md:h-[482px] md:overflow-y-scroll">
         {props.embedTweets.map((tweet) => {
           return (
             <Link
-              href={`https://twitter.com/uolYUd2kPpw3yRY/status/${tweet.id}`}
+              href={`https://twitter.com/${user.username}/status/${tweet.id}`}
               key={tweet.id}
             >
               <a
