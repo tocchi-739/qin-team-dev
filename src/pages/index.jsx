@@ -1,6 +1,6 @@
 import Blog from "src/components/Blog";
 import Button from "src/components/Button";
-import Github, { PcGithubList, SpGithubList } from "src/components/Github";
+import Github from "src/components/Github";
 import Hero from "src/components/Hero";
 import Portfolio from "src/components/Portfolio";
 import Tweet from "src/components/Tweet";
@@ -9,15 +9,19 @@ import Layout from "src/components/Layout/Layout";
 
 import { client } from "src/libs/client";
 import { twitterClient } from "src/libs/twitterClient";
+const { graphql } = require("@octokit/graphql");
 
 export const getStaticProps = async () => {
+  //ブログデータ取得
   const blogData = await client.getList({
     endpoint: "blog",
   });
+  //ポートフォリオデータ取得
   const portfolioData = await client.getList({
     endpoint: "portfolio",
   });
 
+  //Twitterデータ取得
   const tweets = await twitterClient.v2.get(
     `users/${process.env.TWITTER_USER_ID}/tweets`,
     {
@@ -41,21 +45,68 @@ export const getStaticProps = async () => {
       return { ...tweet, html };
     })
   );
+
+  //GitHubデータ取得
+  const graphqlWithAuth = graphql.defaults({
+    headers: {
+      authorization: `token ${process.env.GITHUB_TOKEN}`,
+    },
+  });
+  const QUERY = `
+  query getUser($login: String!) {
+    user(login: $login) {
+      name
+      url
+      repositories(last:5){
+        nodes{
+          name
+          description
+          url
+          resourcePath
+          stargazers{
+            totalCount
+          }
+          forks{
+            totalCount
+          }
+          languages (first:4){
+            totalSize
+            edges{
+              size
+              node{
+                name
+                color
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+  const { user } = await graphqlWithAuth(QUERY, {
+    login: "tocchi-739",
+  });
+
   return {
     props: {
       blog: blogData,
       portfolio: portfolioData,
-      user: tweets.includes.users[0],
+      twitterUser: tweets.includes.users[0],
       tweets: tweets,
       embedTweets: embedTweets,
+      github: user,
     },
     revalidate: 10,
   };
 };
 
 const Home = (props) => {
-  console.log(props.user);
   const width = useWindowSize();
+  const githubUser = {
+    name: props.github.name,
+    url: props.github.url,
+  };
   return (
     <Layout title={"Home"}>
       <Hero />
@@ -77,12 +128,18 @@ const Home = (props) => {
       </div>
       <div className="md:grid md:grid-cols-2 md:gap-20">
         {width < 640 ? (
-          <Github githubList={SpGithubList} />
+          <Github
+            githubList={props.github.repositories.nodes.slice(0, 3)}
+            githubUser={githubUser}
+          />
         ) : (
-          <Github githubList={PcGithubList} />
+          <Github
+            githubList={props.github.repositories.nodes}
+            githubUser={githubUser}
+          />
         )}
         <Tweet
-          twitterUser={props.user}
+          twitterUser={props.twitterUser}
           embedTweets={
             width < 640 ? props.embedTweets.slice(0, 3) : props.embedTweets
           }
