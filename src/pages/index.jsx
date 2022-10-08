@@ -69,7 +69,7 @@ export const getStaticProps = async () => {
           forks{
             totalCount
           }
-          languages (first:4){
+          languages (first:8){
             totalSize
             edges{
               size
