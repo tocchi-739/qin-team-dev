@@ -68,7 +68,7 @@ const Github = (props) => {
                     {github.languages.edges.map((language) => {
                       return (
                         <li
-                          className="mr-2 flex items-center"
+                          className="mr-4 mt-1 flex items-center"
                           key={language.node.name}
                         >
                           <span
