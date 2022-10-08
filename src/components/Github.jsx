@@ -43,7 +43,7 @@ const Github = (props) => {
                   </li>
                 </ul>
                 <div className="mt-2">
-                  <span className="flex h-2 w-full overflow-hidden rounded-md">
+                  <span className="flex h-2 w-full overflow-hidden rounded-full">
                     {github.languages.edges.map((language) => {
                       return (
                         <span
