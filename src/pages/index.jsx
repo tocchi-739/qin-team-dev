@@ -63,6 +63,7 @@ export const getStaticProps = async () => {
           name
           description
           url
+          id
           stargazers{
             totalCount
           }
@@ -74,6 +75,7 @@ export const getStaticProps = async () => {
             edges{
               size
               node{
+                id
                 name
                 color
               }

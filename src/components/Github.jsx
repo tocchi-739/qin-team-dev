@@ -9,7 +9,7 @@ const Github = (props) => {
       <HomeContentTitle title="GitHub" />
       {props.githubList.map((github) => {
         return (
-          <div className="mt-8 md:mt-10" key={github.name}>
+          <div className="mt-8 md:mt-10" key={github.id}>
             <Link href={github.url}>
               <a
                 className="transition duration-200 hover:opacity-60"
@@ -53,7 +53,7 @@ const Github = (props) => {
                               "%",
                             background: language.node.color,
                           }}
-                          key={language.node.name}
+                          key={language.node.id}
                         ></span>
                       );
                     })}
@@ -65,7 +65,7 @@ const Github = (props) => {
                       return (
                         <li
                           className="mr-4 mt-1 flex items-center"
-                          key={language.node.name}
+                          key={language.node.id}
                         >
                           <span
                             className="h-2 w-2 rounded-full"
