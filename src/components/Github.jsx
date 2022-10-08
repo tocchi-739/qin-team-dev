@@ -17,7 +17,9 @@ const Github = (props) => {
               rel="noopener noreferrer"
             >
               <h3 className="text-lg font-bold">{github.name}</h3>
-              <p className="mt-2">{github.description}</p>
+              <p className="mt-2">
+                {github.description ? github.description : "no description"}
+              </p>
               <ul className="mt-2 flex font-bold text-gray-500">
                 <li className="mr-4 flex">
                   <Image
