@@ -57,7 +57,8 @@ export const getStaticProps = async () => {
     user(login: $login) {
       name
       url
-      repositories(last:5){
+      repositories(last:5
+        ownerAffiliations: [OWNER]){
         nodes{
           name
           description
