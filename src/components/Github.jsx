@@ -40,52 +40,46 @@ const Github = (props) => {
               </ul>
               <div className="mt-2">
                 <span className="flex h-2 w-full overflow-hidden rounded-full">
-                  {github.languages.edges.map((language) => {
-                    return (
-                      <span
-                        style={{
-                          width:
-                            Math.round(
-                              (language.size / github.languages.totalSize) *
-                                1000
-                            ) /
-                              10 +
-                            "%",
-                          background: language.node.color,
-                        }}
-                        key={language.node.id}
-                      ></span>
-                    );
-                  })}
+                  {github.languages.edges.map((language) => (
+                    <span
+                      style={{
+                        width:
+                          Math.round(
+                            (language.size / github.languages.totalSize) * 1000
+                          ) /
+                            10 +
+                          "%",
+                        background: language.node.color,
+                      }}
+                      key={language.node.id}
+                    ></span>
+                  ))}
                 </span>
               </div>
               <div className="mt-2">
                 <ul className="flex flex-wrap">
-                  {github.languages.edges.map((language) => {
-                    return (
-                      <li
-                        className="mr-4 mt-1 flex items-center"
-                        key={language.node.id}
-                      >
-                        <span
-                          className="h-2 w-2 rounded-full"
-                          style={{ background: language.node.color }}
-                        ></span>
-                        <span className="ml-[6px] text-xs font-bold">
-                          {language.node.name}
-                        </span>
-                        <span className="ml-[6px] text-xs font-bold opacity-70">
-                          {`${
-                            Math.round(
-                              (language.size / github.languages.totalSize) *
-                                1000
-                            ) / 10
-                          }
+                  {github.languages.edges.map((language) => (
+                    <li
+                      className="mr-4 mt-1 flex items-center"
+                      key={language.node.id}
+                    >
+                      <span
+                        className="h-2 w-2 rounded-full"
+                        style={{ background: language.node.color }}
+                      ></span>
+                      <span className="ml-[6px] text-xs font-bold">
+                        {language.node.name}
+                      </span>
+                      <span className="ml-[6px] text-xs font-bold opacity-70">
+                        {`${
+                          Math.round(
+                            (language.size / github.languages.totalSize) * 1000
+                          ) / 10
+                        }
                             %`}
-                        </span>
-                      </li>
-                    );
-                  })}
+                      </span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </a>
