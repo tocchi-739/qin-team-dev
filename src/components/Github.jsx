@@ -18,28 +18,24 @@ const Github = (props) => {
               >
                 <h3 className="text-lg font-bold">{github.name}</h3>
                 <p className="mt-2">{github.description}</p>
-                <ul className="mt-2 flex">
-                  <li className="mr-1">
+                <ul className="mt-2 flex font-bold text-gray-500">
+                  <li className="mr-4 flex">
                     <Image
                       src={"/assets/svgs/Star.svg"}
                       width={25}
                       height={25}
                       alt="Starのマーク"
                     />
+                    <p className="ml-1">{github.stargazers.totalCount}</p>
                   </li>
-                  <li className="mr-4 font-bold text-gray-500">
-                    {github.stargazers.totalCount}
-                  </li>
-                  <li className="mr-1">
+                  <li className="mr-1 flex">
                     <Image
                       src={"/assets/svgs/Fork.svg"}
                       width={25}
                       height={25}
                       alt="Forkのマーク"
                     />
-                  </li>
-                  <li className="font-bold text-gray-500">
-                    {github.forks.totalCount}
+                    <p className="ml-1">{github.forks.totalCount}</p>
                   </li>
                 </ul>
                 <div className="mt-2">
