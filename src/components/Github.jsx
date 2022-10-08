@@ -16,7 +16,7 @@ const Github = (props) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <h3 className="text-lg font-bold">{github.resourcePath}</h3>
+                <h3 className="text-lg font-bold">{github.name}</h3>
                 <p className="mt-2">{github.description}</p>
                 <ul className="mt-2 flex">
                   <li className="mr-1">

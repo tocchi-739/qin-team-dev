@@ -63,7 +63,6 @@ export const getStaticProps = async () => {
           name
           description
           url
-          resourcePath
           stargazers{
             totalCount
           }
