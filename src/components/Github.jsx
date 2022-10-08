@@ -79,11 +79,13 @@ const Github = (props) => {
                             {language.node.name}
                           </span>
                           <span className="ml-[6px] text-xs font-bold opacity-70">
-                            {Math.round(
-                              (language.size / github.languages.totalSize) *
-                                1000
-                            ) / 10}
-                            %
+                            {`${
+                              Math.round(
+                                (language.size / github.languages.totalSize) *
+                                  1000
+                              ) / 10
+                            }
+                            %`}
                           </span>
                         </li>
                       );
