@@ -30,7 +30,7 @@ const Github = (props) => {
                   />
                   <p className="ml-1">{github.stargazers.totalCount}</p>
                 </li>
-                <li className="mr-1 flex">
+                <li className="flex">
                   <Image
                     src={"/assets/svgs/Fork.svg"}
                     width={25}
