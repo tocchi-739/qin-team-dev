@@ -9,7 +9,7 @@ const Tweet = (props) => {
   return (
     <div className="mx-4 mt-[61px] md:mt-[100px]">
       <HomeContentTitle title="Twitter" />
-      <div className="md:h-[482px] md:overflow-y-scroll">
+      <div className="md:h-[500px] md:overflow-y-scroll">
         {props.embedTweets.map((tweet) => {
           return (
             <Link
