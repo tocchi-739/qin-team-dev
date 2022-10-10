@@ -4,9 +4,19 @@ import { useMantineColorScheme } from "@mantine/core";
 const { default: Link } = require("next/link");
 
 const svgImages = [
-  { id: 1, src: "/assets/svgs/Twitter.svg", alt: "Twitterのマーク" },
-  { id: 2, src: "/assets/svgs/Facebook.svg", alt: "Facebookのマーク" },
-  { id: 3, src: "/assets/svgs/RSS.svg", alt: "RSSのマーク" },
+  {
+    id: 1,
+    src: "/assets/svgs/Twitter.svg",
+    alt: "Twitterのマーク",
+    href: "https://twitter.com/uolYUd2kPpw3yRY",
+  },
+  {
+    id: 2,
+    src: "/assets/svgs/Facebook.svg",
+    alt: "Facebookのマーク",
+    href: "#",
+  },
+  { id: 3, src: "/assets/svgs/RSS.svg", alt: "RSSのマーク", href: "" },
 ];
 
 const Hero = () => {
@@ -35,8 +45,8 @@ const Hero = () => {
                   className="mr-2 transition duration-200 hover:opacity-60"
                   key={svgImage.id}
                 >
-                  <Link href="#">
-                    <a>
+                  <Link href={svgImage.href}>
+                    <a target="_blank" rel="noopener noreferrer">
                       <Image
                         src={svgImage.src}
                         width={25}
