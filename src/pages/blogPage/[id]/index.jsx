@@ -1,3 +1,4 @@
+import { TypographyStylesProvider } from "@mantine/core";
 import dayjs from "dayjs";
 import HomeContentTitle from "src/components/HomeContentTitle";
 import Layout from "src/components/Layout/Layout";
@@ -14,10 +15,12 @@ const BlogDetail = (props) => {
       >
         {dayjs(props.data.publishedAt).format("YYYY.MM.DD")}
       </time>
-      <article
-        className="prose prose-sm mt-6 max-w-full"
-        dangerouslySetInnerHTML={{ __html: props.data.body }}
-      />
+      <TypographyStylesProvider>
+        <article
+          className="mt-6 max-w-full"
+          dangerouslySetInnerHTML={{ __html: props.data.body }}
+        />
+      </TypographyStylesProvider>
     </Layout>
   );
 };
