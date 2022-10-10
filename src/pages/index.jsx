@@ -57,23 +57,25 @@ export const getStaticProps = async () => {
     user(login: $login) {
       name
       url
-      repositories(last:5){
+      repositories(last:5
+        ownerAffiliations: [OWNER]){
         nodes{
           name
           description
           url
-          resourcePath
+          id
           stargazers{
             totalCount
           }
           forks{
             totalCount
           }
-          languages (first:4){
+          languages (first:8){
             totalSize
             edges{
               size
               node{
+                id
                 name
                 color
               }
