@@ -41,6 +41,7 @@ export const getStaticProps = async (ctx) => {
   });
   console.log(`${data.title}がSG化されました`);
   return {
+    revalidate: 10,
     props: { data },
   };
 };
