@@ -55,7 +55,12 @@ const Contact = () => {
     <Layout title={"Contact"}>
       <HomeContentTitle title="Contact" />
       <form action="" className="flex flex-col text-sm">
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">
+          <span className="rounded bg-red-700 p-1 text-xs font-bold text-white">
+            必須
+          </span>
+          <span className="ml-3">Email</span>
+        </label>
         <input
           id="email"
           type="email"
@@ -63,8 +68,14 @@ const Contact = () => {
           className="mt-1 mb-4 border-[1px] border-[#CED4DA] px-[12px] py-[7px]"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
+          required="required" //required効いていない
         />
-        <label htmlFor="name">Name</label>
+        <label htmlFor="name">
+          <span className="rounded bg-red-700 p-1 text-xs font-bold text-white">
+            必須
+          </span>
+          <span className="ml-3">Name</span>
+        </label>
         <input
           id="name"
           type="text"
@@ -72,8 +83,14 @@ const Contact = () => {
           className="mt-1 mb-4 border-[1px] border-[#CED4DA] px-[12px] py-[7px]"
           onChange={(e) => setName(e.target.value)}
           value={name}
+          required="required"
         />
-        <label htmlFor="message">Your message</label>
+        <label htmlFor="message">
+          <span className="rounded bg-red-700 p-1 text-xs font-bold text-white">
+            必須
+          </span>
+          <span className="ml-3">Your message</span>
+        </label>
         <textarea
           id="message"
           name="message"
@@ -83,6 +100,7 @@ const Contact = () => {
           className="mt-1 mb-4 border-[1px] border-[#CED4DA] py-[7px] pl-[12px]"
           onChange={(e) => setMessage(e.target.value)}
           value={message}
+          required="required"
         ></textarea>
       </form>
       <button
