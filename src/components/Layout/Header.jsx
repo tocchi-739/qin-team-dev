@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Burger } from "@mantine/core";
 import { ActionIcon, useMantineColorScheme } from "@mantine/core";
+import { FaRegMoon, FaSun } from "react-icons/fa";
 
 import NavItems from "./NavItems";
 
@@ -56,18 +56,13 @@ const Header = () => {
           <div className="flex">
             <NavItems width="md" />
             <ActionIcon
+              variant="outline"
               color={dark ? "yellow" : "blue"}
               onClick={() => toggleColorScheme()}
               title="Toggle color scheme"
             >
-              <Image
-                src="/assets/svgs/Dark_Mode.svg"
-                width={34}
-                height={34}
-                alt="ダークモードのマーク"
-              />
+              {dark ? <FaSun size={18} /> : <FaRegMoon size={18} />}
             </ActionIcon>
-            {/* </button> */}
           </div>
         </div>
       </nav>
