@@ -39,6 +39,7 @@ export const getStaticProps = async (ctx) => {
       blog: data.contents,
       totalCount: data.totalCount,
     },
+    revalidate: 10,
   };
 };
 
