@@ -22,29 +22,29 @@ export const getStaticProps = async () => {
   });
 
   //Twitterデータ取得
-  const tweets = await twitterClient.v2.get(
-    `users/${process.env.TWITTER_USER_ID}/tweets`,
-    {
-      max_results: 10,
-      "tweet.fields": ["created_at"],
-      exclude: ["retweets", "replies"],
-      expansions: ["author_id"], //userの情報を取得するための指定
-      "user.fields": ["profile_image_url"],
-    }
-  );
-  const embedTweets = await Promise.all(
-    tweets.data.map(async (tweet) => {
-      const username = tweets.includes.users[0].username;
-      const { id } = tweet;
-      const url = `https://publish.twitter.com/oembed?url=https://twitter.com/${username}/status/${id}`;
-      const data = await fetch(url);
-      const { html } = await data.json();
-      if (typeof html !== "string") {
-        return { ...tweet, html: "" };
-      }
-      return { ...tweet, html };
-    })
-  );
+  // const tweets = await twitterClient.v2.get(
+  //   `users/${process.env.TWITTER_USER_ID}/tweets`,
+  //   {
+  //     max_results: 10,
+  //     "tweet.fields": ["created_at"],
+  //     exclude: ["retweets", "replies"],
+  //     expansions: ["author_id"], //userの情報を取得するための指定
+  //     "user.fields": ["profile_image_url"],
+  //   }
+  // );
+  // const embedTweets = await Promise.all(
+  //   tweets.data.map(async (tweet) => {
+  //     const username = tweets.includes.users[0].username;
+  //     const { id } = tweet;
+  //     const url = `https://publish.twitter.com/oembed?url=https://twitter.com/${username}/status/${id}`;
+  //     const data = await fetch(url);
+  //     const { html } = await data.json();
+  //     if (typeof html !== "string") {
+  //       return { ...tweet, html: "" };
+  //     }
+  //     return { ...tweet, html };
+  //   })
+  // );
 
   //GitHubデータ取得
   const graphqlWithAuth = graphql.defaults({
@@ -140,12 +140,12 @@ const Home = (props) => {
             githubUser={githubUser}
           />
         )}
-        <Tweet
+        {/* <Tweet
           twitterUser={props.twitterUser}
           embedTweets={
             width < 640 ? props.embedTweets.slice(0, 3) : props.embedTweets
           }
-        />
+        /> */}
       </div>
     </Layout>
   );
